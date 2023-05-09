@@ -1,6 +1,1 @@
-nodemon.json
-babel.config.cjs
-tsconfig.cjs.json
-tsconfig.json
-/src
 /node_modules
