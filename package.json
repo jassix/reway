@@ -3,6 +3,7 @@
   "private": false,
   "version": "0.1.0",
   "description": "Reway core logic package",
+  "repository": "https://github.com/jassix/reway",
   "author": "Nikita Pitunov <jassix@pm.me>",
   "scripts": {
     "start:dev": "nodemon"
@@ -26,7 +27,7 @@
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-typescript": "^7.21.4",
-    "@reway/logger": "*",
+    "logger": "*",
     "@types/node": "^20.1.0",
     "nanostores": "^0.8.1",
     "node": "^20.1.0",
