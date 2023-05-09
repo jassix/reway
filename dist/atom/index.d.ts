@@ -1,4 +1,3 @@
 export * from './atom';
-export * from './action';
-export * from './combine';
+export * from './atom.types';
 //# sourceMappingURL=index.d.ts.map

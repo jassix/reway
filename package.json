@@ -1,10 +1,14 @@
 {
   "name": "@reway/core",
+  "npmName": "@reway/core",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.8",
   "description": "Reway core logic package",
-  "repository": "https://github.com/jassix/reway",
-  "author": "Nikita Pitunov <jassix@pm.me>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jassix/reway.git"
+  },
+  "author": "Nikita Pitunov <jassix@pm.me> (https://github.com/jassix)",
   "scripts": {
     "start:dev": "nodemon"
   },
@@ -15,24 +19,48 @@
       "default": "./esm/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "types": "./esm/index.d.ts",
-  "module": "./esm/index.js",
-  "type": "module",
-  "bin": {
-    "ts-library-template": "./dist/index.js",
-    "tslib": "./dist/index.js"
-  },
+  "main": "src/index.ts",
+  "unpkg": "dist/index.js",
+  "module": "esm/index.js",
+  "npmFileMap": [
+    {
+      "basePath": "/dist/",
+      "files": [
+        "*.js",
+        "*.d.ts.map",
+        "*.d.ts",
+
+        "**/*.js",
+        "**/*.d.ts.map",
+        "**/*.d.ts"
+      ]
+    }
+  ],
   "dependencies": {
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-typescript": "^7.21.4",
-    "logger": "*",
     "@types/node": "^20.1.0",
-    "nanostores": "^0.8.1",
     "node": "^20.1.0",
     "nodemon": "^2.0.22",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/jassix/reway/issues"
+  },
+  "homepage": "https://github.com/jassix/reway#readme",
+  "devDependencies": {},
+  "keywords": [
+    "react",
+    "javascript",
+    "typescript",
+    "reactive",
+    "state-management",
+    "reactjs",
+    "pubsub",
+    "effector",
+    "zustand",
+    "jotai"
+  ]
 }

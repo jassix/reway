@@ -1,5 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.atom = void 0;
 let atomCount = 0;
-export const atom = ((...[state]) => {
+exports.atom = ((...[state]) => {
     let currentState = state;
     let listeners = {};
     const atomIndex = `atom_${++atomCount}`;
@@ -18,10 +21,7 @@ export const atom = ((...[state]) => {
         },
         set: (selected) => {
             if (typeof selected == 'object') {
-                currentState = {
-                    ...currentState,
-                    ...selected
-                };
+                currentState = Object.assign(Object.assign({}, currentState), selected);
             }
             else {
                 currentState = selected;
