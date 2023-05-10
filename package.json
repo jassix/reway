@@ -2,7 +2,7 @@
   "name": "@reway/core",
   "npmName": "@reway/core",
   "private": false,
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "Reway core logic package",
   "repository": {
     "type": "git",
