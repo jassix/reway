@@ -11,7 +11,7 @@ export type AtomModule<InitialState> = {
 };
 export type Atom<InitialState> = {
     get: (selected?: AtomGetSelectCheck<InitialState>) => Partial<Readonly<InitialState>>;
-    set: (selected?: AtomSetSelectCheck<InitialState>) => any;
+    set: (selected?: AtomSetSelectCheck<InitialState>, modules?: boolean) => any;
     on: <Key extends keyof InitialState>(method: AtomOnMethod<InitialState, Key>, callback: (state: AtomOnCallback<InitialState, Key>) => any) => any;
     append: (...modules: AtomModule<InitialState>[]) => Omit<Atom<InitialState>, 'append'>;
 };

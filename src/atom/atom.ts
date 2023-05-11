@@ -27,7 +27,7 @@ export const atom = (<InitialState>(...[state]: CreateAtomParameters<InitialStat
 
 			return result;
 		},
-		set: (selected) => {
+		set: (selected, modules) => {
 			if (typeof selected == 'object') {
 				currentState = {
 					...currentState,
@@ -37,21 +37,23 @@ export const atom = (<InitialState>(...[state]: CreateAtomParameters<InitialStat
 				currentState = selected as any
 			}
 
-			Object.keys(activeModules).map((item) => {
-				activeModules[item].map((module: any) => {
-					if (item == "all") {
-						module(currentState);
-					}
+			if (modules) {
+				Object.keys(activeModules).map((item) => {
+					activeModules[item].map((module: any) => {
+						if (item == "all") {
+							module(currentState);
+						}
 
-					if (typeof selected == 'object') {
-						Object.keys(selected as object).map((selectedItem) => {
-							if (selectedItem == item) {
-								module(currentState);
-							}
-						})
-					}
+						if (typeof selected == 'object') {
+							Object.keys(selected as object).map((selectedItem) => {
+								if (selectedItem == item) {
+									module(currentState);
+								}
+							})
+						}
+					})
 				})
-			})
+			}
 
 			Object.keys(listeners).map((item) => {
 				if (item == "data") {

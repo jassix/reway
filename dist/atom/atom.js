@@ -20,27 +20,29 @@ exports.atom = ((...[state]) => {
             });
             return result;
         },
-        set: (selected) => {
+        set: (selected, modules) => {
             if (typeof selected == 'object') {
                 currentState = Object.assign(Object.assign({}, currentState), selected);
             }
             else {
                 currentState = selected;
             }
-            Object.keys(activeModules).map((item) => {
-                activeModules[item].map((module) => {
-                    if (item == "all") {
-                        module(currentState);
-                    }
-                    if (typeof selected == 'object') {
-                        Object.keys(selected).map((selectedItem) => {
-                            if (selectedItem == item) {
-                                module(currentState);
-                            }
-                        });
-                    }
+            if (modules) {
+                Object.keys(activeModules).map((item) => {
+                    activeModules[item].map((module) => {
+                        if (item == "all") {
+                            module(currentState);
+                        }
+                        if (typeof selected == 'object') {
+                            Object.keys(selected).map((selectedItem) => {
+                                if (selectedItem == item) {
+                                    module(currentState);
+                                }
+                            });
+                        }
+                    });
                 });
-            });
+            }
             Object.keys(listeners).map((item) => {
                 if (item == "data") {
                     listeners[item].map((callback) => {
