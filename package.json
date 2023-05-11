@@ -2,7 +2,7 @@
   "name": "@reway/core",
   "npmName": "@reway/core",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Reway core logic package",
   "repository": {
     "type": "git",
@@ -10,7 +10,8 @@
   },
   "author": "Nikita Pitunov <jassix@pm.me> (https://github.com/jassix)",
   "scripts": {
-    "start:dev": "nodemon"
+    "start:dev": "nodemon",
+    "test": "jest"
   },
   "license": "MIT",
   "exports": {
@@ -29,7 +30,6 @@
         "*.js",
         "*.d.ts.map",
         "*.d.ts",
-
         "**/*.js",
         "**/*.d.ts.map",
         "**/*.d.ts"
@@ -50,7 +50,11 @@
     "url": "https://github.com/jassix/reway/issues"
   },
   "homepage": "https://github.com/jassix/reway#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "jest": "^29.5.0",
+    "nanostores": "^0.8.1"
+  },
   "keywords": [
     "react",
     "javascript",
